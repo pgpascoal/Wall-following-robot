@@ -62,6 +62,25 @@ void loop()
   analogWrite(motorPin4, speed);
   delay(2000);
   analogWrite(motorPin4, 0);*/
+  int i = 1;
+
+  while (i < 100)
+  {
+    analogWrite(motorPin4, i*255/100);
+    delay(500);
+    analogWrite(motorPin4, 0);
+    delay(200);
+    i+=10;
+  }
+
+  analogWrite(motorPin4, 255);
+  analogWrite(motorPin1, 128);
+  delay(7000);
+  analogWrite(motorPin4, 128);
+  analogWrite(motorPin1, 255);
+  delay(10000);
+  
+  
 
   //______________________________________________
   // turn the LED on (HIGH is the voltage level)
@@ -76,7 +95,7 @@ void loop()
    // wait for a second
   delay(100);
   //______________________________________________
-  //LEFT SONAR
+  /*//LEFT SONAR
   // Clears the trigPin
   digitalWrite(trig_LEFT, LOW);
   delayMicroseconds(2);
@@ -122,5 +141,5 @@ void loop()
   distance_RIGHT = duration_RIGHT * 0.0343 / 2;
   // Prints the distance on the Serial Monitor
   Serial.print("Distance RIGHT: ");
-  Serial.println(distance_RIGHT);
+  Serial.println(distance_RIGHT);*/
 }
